@@ -34,6 +34,19 @@ test("install, doctor e uninstall de projeto Codex", () => {
   }
 });
 
+test("instala Codex global com skill e regra always-on", () => {
+  const target = fs.mkdtempSync(path.join(os.tmpdir(), "devweave-"));
+  try {
+    const installed = run(["install", "--global", "--platform", "codex", "--target", target]);
+    assert.equal(installed.status, 0, installed.stderr);
+    assert.ok(fs.existsSync(path.join(target, ".codex", "skills", "devweave", "SKILL.md")));
+    const rules = fs.readFileSync(path.join(target, ".codex", "AGENTS.md"), "utf8");
+    assert.match(rules, /DevWeave sempre ativo/);
+  } finally {
+    fs.rmSync(target, { recursive: true, force: true });
+  }
+});
+
 test("preserva conteúdo existente usando bloco marcado", () => {
   const target = fs.mkdtempSync(path.join(os.tmpdir(), "devweave-"));
   try {
@@ -45,6 +58,20 @@ test("preserva conteúdo existente usando bloco marcado", () => {
     assert.match(content, /devweave:start/);
     run(["uninstall", "--project", "--platform", "agents", "--target", target]);
     assert.equal(fs.readFileSync(path.join(target, "AGENTS.md"), "utf8").trim(), "# Regras locais");
+  } finally {
+    fs.rmSync(target, { recursive: true, force: true });
+  }
+});
+
+test("--force não sobrescreve regras externas", () => {
+  const target = fs.mkdtempSync(path.join(os.tmpdir(), "devweave-"));
+  try {
+    fs.writeFileSync(path.join(target, "AGENTS.md"), "# Autoridade local\n");
+    const installed = run(["install", "--project", "--platform", "agents", "--target", target, "--force"]);
+    assert.equal(installed.status, 0, installed.stderr);
+    const content = fs.readFileSync(path.join(target, "AGENTS.md"), "utf8");
+    assert.match(content, /# Autoridade local/);
+    assert.match(content, /devweave:start/);
   } finally {
     fs.rmSync(target, { recursive: true, force: true });
   }

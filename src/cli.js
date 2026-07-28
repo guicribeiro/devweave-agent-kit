@@ -5,12 +5,14 @@ import { fileURLToPath } from "node:url";
 import { aliases, normalizePlatform, platforms } from "./platforms.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const packageData = JSON.parse(fs.readFileSync(path.join(root, "package.json"), "utf8"));
+const version = packageData.version;
 const manifestName = ".devweave-manifest.json";
 const markerStart = "<!-- devweave:start -->";
 const markerEnd = "<!-- devweave:end -->";
 
 function usage() {
-  return `DevWeave 0.1.0
+  return `DevWeave ${version}
 
 Uso:
   devweave install [--global|--project] [--platform all|codex|claude|cursor|opencode|gemini|copilot|windsurf|cline|agents] [--target CAMINHO] [--force]
@@ -84,12 +86,8 @@ function writeManaged(file, content, force) {
     fs.writeFileSync(file, replaced);
     return "updated";
   }
-  if (!force) {
-    fs.appendFileSync(file, `\n${markerStart}\n${content.trim()}\n${markerEnd}\n`);
-    return "appended";
-  }
-  fs.writeFileSync(file, `${content.trim()}\n`);
-  return "replaced";
+  fs.appendFileSync(file, `\n${markerStart}\n${content.trim()}\n${markerEnd}\n`);
+  return force ? "appended-safe" : "appended";
 }
 
 function install(options) {
@@ -108,7 +106,7 @@ function install(options) {
   }
   const manifest = path.join(base, ".config", "devweave", manifestName);
   fs.mkdirSync(path.dirname(manifest), { recursive: true });
-  fs.writeFileSync(manifest, JSON.stringify({ version: "0.1.0", scope: options.scope, installed }, null, 2));
+  fs.writeFileSync(manifest, JSON.stringify({ version, scope: options.scope, installed }, null, 2));
   console.log(`Instalação concluída: ${installed.length} destino(s).`);
   for (const item of installed) console.log(`- ${platforms[item.platform].label}: ${item.path}`);
 }

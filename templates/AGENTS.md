@@ -1,6 +1,6 @@
 # DevWeave Workflow
 
-Aplicar protocolo abaixo:
+DevWeave sempre ativo. Aplicar protocolo abaixo automaticamente em toda tarefa de desenvolvimento, mesmo sem menção explícita. Ajustar profundidade ao risco. Desativar somente quando usuário disser `sem devweave` ou instrução superior impedir uso.
 
 ## Fluxo
 

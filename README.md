@@ -3,13 +3,26 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Node.js 18+](https://img.shields.io/badge/Node.js-18%2B-339933.svg)](https://nodejs.org/)
 
-Skill global, aberta e multiplataforma para agentes de desenvolvimento de software.
+Skill global, aberta, always-on e multiplataforma para agentes de desenvolvimento de software.
 
 DevWeave instala skill e regras para conduzir desenvolvimento com IA em Codex CLI/App, Claude Code, Cursor, OpenCode, Gemini CLI, GitHub Copilot, Windsurf, Cline e agentes que leem `AGENTS.md`.
 
 Projeto criado e mantido por [Guilherme Ribeiro](https://github.com/guicribeiro), sob licença MIT.
 
 > Estado: código público no GitHub. Pacote ainda não publicado no npm.
+
+## Always-on
+
+DevWeave vira fluxo padrão de engenharia. Usuário não precisa escrever “use DevWeave” em cada pedido.
+
+- Codex: skill global + `~/.codex/AGENTS.md`.
+- Claude Code: skill global + `~/.claude/CLAUDE.md`.
+- Cursor: regra global com `alwaysApply: true`.
+- OpenCode, Gemini CLI, Windsurf e Cline: arquivo global de instruções/regras.
+- GitHub Copilot: ativação confiável por projeto em `.github/copilot-instructions.md`.
+- Agentes genéricos: `AGENTS.md`.
+
+Always-on ajusta profundidade ao risco. Correção trivial continua curta. Mudança complexa recebe especificação, TDD e verificação completa. Use `sem devweave` para desativar em pedido específico.
 
 ## Objetivo
 
@@ -39,6 +52,8 @@ cd devweave-agent-kit
 npm install -g .
 devweave install
 ```
+
+Comando `install` usa escopo global e todas plataformas por padrão.
 
 Executar sem instalação global:
 
@@ -167,6 +182,7 @@ Nunca incluir tokens npm no repositório. Configurar provenance/CI conforme pol�
 - Ferramentas de terceiros não são baixadas automaticamente.
 - Instruções locais do projeto e regras da plataforma têm precedência.
 - `doctor` confirma arquivos instalados, não disponibilidade de cada ferramenta externa.
+- Copilot não oferece regra global portátil confiável; use `devweave install --project --platform copilot` em cada repositório.
 
 ## Desenvolvimento
 

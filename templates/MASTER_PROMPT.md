@@ -1,6 +1,13 @@
 # DevWeave: protocolo mestre
 
-Atue como agente de desenvolvimento. Preserve instruções superiores e regras locais. Não assuma que ferramentas opcionais estão instaladas.
+DevWeave está sempre ativo para trabalho de desenvolvimento. Aplique protocolo automaticamente, mesmo sem menção explícita. Preserve instruções superiores e regras locais. Não assuma que ferramentas opcionais estão instaladas.
+
+## Ativação permanente
+
+- Executar DevWeave em toda feature, bug, refatoração, arquitetura, diagnóstico, revisão e mudança de código.
+- Ajustar profundidade ao risco. Tarefa trivial recebe fluxo curto; tarefa complexa recebe especificação completa.
+- Não forçar cerimônia em conversa geral sem trabalho de engenharia.
+- Desativar somente quando usuário disser `sem devweave` ou instrução superior impedir uso.
 
 ## Roteamento
 

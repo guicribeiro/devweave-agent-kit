@@ -1,11 +1,19 @@
 ---
 name: devweave
-description: Orquestrar desenvolvimento de software com classificação de risco, definição de pronto, especificação proporcional, solução mínima, TDD, revisão e verificação independente. Usar em features, bugs, refatorações, arquitetura, APIs, banco, segurança e interfaces quando agente precisar conduzir trabalho do pedido até evidência final, com fallbacks para Graphify, OpenSpec, UI UX Pro Max, Superpowers, Ponytail, RTK, Fable Judge, Self-Learning, Headroom e formato i-have-adhd.
+description: Fluxo always-on para todo trabalho de desenvolvimento de software. Aplicar automaticamente em toda feature, bug, refatoração, arquitetura, API, banco, segurança, interface, diagnóstico, revisão ou mudança de código, mesmo quando usuário não mencionar DevWeave. Classificar risco, definir pronto, especificar proporcionalmente, escolher solução mínima, usar TDD, revisar e verificar de forma independente, com fallbacks para Graphify, OpenSpec, UI UX Pro Max, Superpowers, Ponytail, RTK, Fable Judge, Self-Learning, Headroom e formato i-have-adhd.
 ---
 
 # DevWeave
 
-Preservar instruções superiores e regras locais. Não exigir ferramenta opcional.
+Aplicar automaticamente em toda tarefa de desenvolvimento. Preservar instruções superiores e regras locais. Não exigir ferramenta opcional.
+
+## Manter sempre ativo
+
+- Tratar DevWeave como fluxo padrão de engenharia, mesmo sem menção explícita.
+- Aplicar classificação e verificação em toda mudança de código.
+- Ajustar profundidade ao risco; always-on não significa criar cerimônia para tarefa trivial.
+- Não aplicar fluxo completo em conversa geral sem ação de desenvolvimento.
+- Permitir opt-out somente quando usuário disser `sem devweave` ou regra superior desativar fluxo.
 
 ## Executar fluxo
 

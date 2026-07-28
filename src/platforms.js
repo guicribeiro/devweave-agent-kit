@@ -1,12 +1,12 @@
 export const platforms = {
   codex: {
     label: "Codex CLI/App",
-    global: [".codex/skills/devweave"],
+    global: [".codex/skills/devweave", ".codex/AGENTS.md"],
     project: [".codex/skills/devweave", "AGENTS.md"]
   },
   claude: {
     label: "Claude Code",
-    global: [".claude/skills/devweave"],
+    global: [".claude/skills/devweave", ".claude/CLAUDE.md"],
     project: [".claude/skills/devweave", "CLAUDE.md"]
   },
   cursor: {

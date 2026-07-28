@@ -1,0 +1,54 @@
+{
+  "name": "devweave-agent-kit",
+  "version": "0.1.0",
+  "description": "Skill global e adaptadores para fluxo de desenvolvimento de software com agentes de IA",
+  "author": "Guilherme Ribeiro",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guicribeiro/devweave-agent-kit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/guicribeiro/devweave-agent-kit/issues"
+  },
+  "homepage": "https://github.com/guicribeiro/devweave-agent-kit#readme",
+  "type": "module",
+  "bin": {
+    "devweave": "./bin/devweave.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "skill",
+    "templates",
+    "adapters",
+    "examples",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "doctor": "node ./bin/devweave.js doctor",
+    "pack:check": "npm pack --dry-run",
+    "prepublishOnly": "npm test && npm run pack:check"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "ai-agent",
+    "agents-md",
+    "codex",
+    "claude-code",
+    "cursor",
+    "opencode",
+    "gemini-cli",
+    "cline",
+    "windsurf",
+    "tdd",
+    "skill"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}

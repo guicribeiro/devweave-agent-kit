@@ -1,0 +1,4 @@
+interface:
+  display_name: "DevWeave"
+  short_description: "Fluxo completo para desenvolvimento de software com IA"
+  default_prompt: "Use DevWeave para classificar, especificar, implementar e verificar esta tarefa."

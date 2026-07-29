@@ -9,7 +9,6 @@ DevWeave instala skill e regras para conduzir desenvolvimento com IA em Codex CL
 
 Projeto criado e mantido por [Guilherme Ribeiro](https://github.com/guicribeiro), sob licença MIT.
 
-> Estado: código público no GitHub. Pacote ainda não publicado no npm.
 
 ## Always-on
 
@@ -63,7 +62,7 @@ npm install -g @onovoprogramador/onp-spec
 devweave doctor
 ```
 
-## Instalação atual pelo GitHub
+## Instalação pelo GitHub
 
 Clonar e instalar:
 
@@ -95,9 +94,7 @@ Lista completa, créditos, papéis e regras de integração: [REFERENCES.md](REF
 
 Referências principais: [Superpowers](https://github.com/obra/superpowers), [OpenSpec](https://github.com/intent-driven-dev/openspec-schemas), [Fable Method](https://github.com/Sahir619/fable-method), [ONP Spec-Driven](https://github.com/onovoprogramador/onp-spec-driven), [Graphify](https://github.com/Graphify-Labs/graphify), [UI UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill), [Ponytail](https://github.com/DietrichGebert/ponytail), [RTK](https://github.com/rtk-ai/rtk) e [Self-Learning Skills](https://github.com/kulaxyz/self-learning-skills).
 
-## Instalação futura pelo npm
-
-Comandos abaixo funcionarão depois da publicação no npm:
+## Instalação pelo npm
 
 ```sh
 npm install -g devweave-agent-kit
@@ -155,35 +152,29 @@ Aliases aceitos: `claude-code`, `gemini-cli`, `github-copilot`, `codex-cli`, `co
 
 Use `--project` quando plataforma priorizar regras do repositório. Caminhos podem mudar entre versões dos produtos; confirme documentação atual antes de rollout em equipe.
 
-## Publicar no npm depois
+## Publicar nova versão no npm
 
-1. Escolher nome final e consultar disponibilidade:
-
-   ```sh
-   npm view devweave-agent-kit
-   ```
-
-2. Alterar `name`, autor, repositório e versão no `package.json`.
-3. Criar conta npm, habilitar 2FA e autenticar:
+1. Alterar versão no `package.json`.
+2. Criar conta npm, habilitar 2FA e autenticar:
 
    ```sh
    npm login
    ```
 
-4. Validar pacote:
+3. Validar pacote:
 
    ```sh
    npm test
    npm pack --dry-run
    ```
 
-5. Publicar pacote público:
+4. Publicar nova versão:
 
    ```sh
    npm publish --access public
    ```
 
-6. Criar release/tag somente após publicação confirmada. Para nova versão:
+5. Criar release/tag somente após publicação confirmada:
 
    ```sh
    npm version patch

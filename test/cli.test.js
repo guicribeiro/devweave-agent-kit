@@ -76,3 +76,15 @@ test("--force não sobrescreve regras externas", () => {
     fs.rmSync(target, { recursive: true, force: true });
   }
 });
+
+test("doctor informa backend Spec Anchor", () => {
+  const target = fs.mkdtempSync(path.join(os.tmpdir(), "devweave-"));
+  try {
+    run(["install", "--project", "--platform", "agents", "--target", target]);
+    const diagnosed = run(["doctor", "--project", "--target", target]);
+    assert.equal(diagnosed.status, 0, diagnosed.stderr);
+    assert.match(diagnosed.stdout, /Spec Anchor \(ONP CLI\):/);
+  } finally {
+    fs.rmSync(target, { recursive: true, force: true });
+  }
+});

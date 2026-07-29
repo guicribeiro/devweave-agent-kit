@@ -149,8 +149,19 @@ function doctor(options) {
     if (present.length) found += 1;
     console.log(`${present.length ? "OK" : "--"} ${config.label}: ${present.length}/${paths.length}`);
   }
+  console.log(`Spec Anchor (ONP CLI): ${commandAvailable("onp-spec") ? "disponível" : "fallback manual"}`);
   console.log(`Runtime: Node ${process.versions.node}; base: ${base}`);
   if (!found) process.exitCode = 1;
+}
+
+function commandAvailable(name) {
+  const pathValue = process.env.PATH || "";
+  const extensions = process.platform === "win32"
+    ? (process.env.PATHEXT || ".COM;.EXE;.BAT;.CMD").split(";")
+    : [""];
+  return pathValue.split(path.delimiter).some((directory) =>
+    extensions.some((extension) => fs.existsSync(path.join(directory, `${name}${extension}`)))
+  );
 }
 
 export async function main(argv) {

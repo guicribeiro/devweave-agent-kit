@@ -35,12 +35,33 @@ Fable classifica e define pronto. Graphify ajuda em base grande. OpenSpec escolh
 Ferramentas citadas não acompanham pacote. DevWeave funciona por fallback quando não estiverem instaladas.
 
 ```text
-Fable → Graphify? → OpenSpec → UI UX? → Superpowers
-      → Ponytail → TDD → RTK? → Fable Judge
+Fable → Graphify? → OpenSpec → Spec Anchor? → UI UX? → Superpowers
+      → Ponytail → TDD → gate mecânico? → RTK? → Fable Judge
       → Self-Learning? → entrega comprovada
 ```
 
 `?` indica camada opcional ou condicional.
+
+## Spec Anchor
+
+Versão 0.3 adiciona rastreabilidade mecânica inspirada no projeto MIT [ONP Spec-Driven](https://github.com/onovoprogramador/onp-spec-driven):
+
+- histórias `US-xxx`;
+- critérios `AC-xxx`;
+- tarefas `T-xxx`;
+- testes `@spec:AC-xxx`;
+- suposições `ASM-xxx` e perguntas `Q-xxx`;
+- princípios executáveis `P-xxx`;
+- bloqueio de critério sem teste, teste pulado, prova obsoleta, referência órfã e suposição aberta.
+
+OpenSpec continua definindo especificação. Superpowers continua governando implementação. Spec Anchor prova alinhamento. ONP CLI serve como backend opcional; sem ele, DevWeave usa matriz manual equivalente.
+
+Instalação opcional do motor:
+
+```sh
+npm install -g @onovoprogramador/onp-spec
+devweave doctor
+```
 
 ## Instalação atual pelo GitHub
 
@@ -182,6 +203,7 @@ Nunca incluir tokens npm no repositório. Configurar provenance/CI conforme pol�
 - Ferramentas de terceiros não são baixadas automaticamente.
 - Instruções locais do projeto e regras da plataforma têm precedência.
 - `doctor` confirma arquivos instalados, não disponibilidade de cada ferramenta externa.
+- `doctor` informa se ONP CLI está disponível para gate Spec Anchor.
 - Copilot não oferece regra global portátil confiável; use `devweave install --project --platform copilot` em cada repositório.
 
 ## Desenvolvimento

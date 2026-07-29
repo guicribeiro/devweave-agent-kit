@@ -33,3 +33,9 @@ Antes de uso real, executar `doctor`. Fazer backup de regras críticas mantidas 
 ## Dependências conceituais
 
 Projetos Fable, Graphify, OpenSpec, UI UX Pro Max, Superpowers, Ponytail, RTK, Self-Learning, Headroom e i-have-adhd não são empacotados nem instalados. DevWeave consolida protocolo e usa integração somente quando ferramenta já estiver disponível.
+
+## Spec Anchor
+
+Camada entre especificação e verificação. OpenSpec produz intenção e critérios; Spec Anchor mantém IDs e provas; Superpowers executa; Fable Judge revalida. ONP CLI pode atuar como backend mecânico, mas não substitui orquestrador.
+
+Conceitos derivados de `onovoprogramador/onp-spec-driven`, licença MIT. Código do motor não é copiado nem redistribuído por DevWeave.

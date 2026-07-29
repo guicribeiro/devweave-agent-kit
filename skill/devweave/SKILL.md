@@ -27,14 +27,16 @@ Aplicar automaticamente em toda tarefa de desenvolvimento. Preservar instruçõe
    - minimalist para mudança pequena;
    - behaviour-driven para comportamento comum;
    - intent-driven para mudança complexa ou difícil de reverter.
-5. Para interface, ler [references/ui.md](references/ui.md). Não ativar UI UX para backend puro.
-6. Planejar e implementar usando Superpowers como fluxo principal. Não ativar outro orquestrador completo.
-7. Aplicar Ponytail antes de criar código: reutilizar projeto, stdlib, plataforma e dependência existente; escrever menor solução completa e legível.
-8. Para comportamento, aplicar TDD: falha observada, implementação mínima, sucesso observado, refatoração.
-9. Usar RTK quando disponível. Recuperar saída completa quando compactação esconder causa.
-10. Verificar com Fable Judge: inspecionar diff, reexecutar checks, validar critérios, detectar teste enfraquecido e mudança fora de escopo.
-11. Classificar resultado VERIFIED, CAVEATS ou REFUTED.
-12. Registrar Self-Learning só após procedimento reutilizável comprovado. Exigir falha nomeada, alternativa rejeitada e check passando. Nunca registrar segredo.
+5. Para tarefa normal/complexa com critérios verificáveis, aplicar Spec Anchor. Ler [references/spec-anchor.md](references/spec-anchor.md).
+6. Para interface, ler [references/ui.md](references/ui.md). Não ativar UI UX para backend puro.
+7. Planejar e implementar usando Superpowers como fluxo principal. Não entregar execução ao Spec Anchor.
+8. Aplicar Ponytail antes de criar código: reutilizar projeto, stdlib, plataforma e dependência existente; escrever menor solução completa e legível.
+9. Para comportamento, aplicar TDD: falha observada, implementação mínima, sucesso observado, refatoração. Ligar teste ao critério quando Spec Anchor estiver ativo.
+10. Usar RTK quando disponível. Recuperar saída completa quando compactação esconder causa.
+11. Executar gate mecânico quando ONP CLI estiver disponível; usar matriz manual equivalente como fallback.
+12. Verificar com Fable Judge: inspecionar diff, reexecutar checks, validar critérios, detectar teste enfraquecido e mudança fora de escopo.
+13. Classificar resultado VERIFIED, CAVEATS ou REFUTED.
+14. Registrar Self-Learning só após procedimento reutilizável comprovado. Exigir falha nomeada, alternativa rejeitada e check passando. Nunca registrar segredo.
 
 ## Controlar opções
 
@@ -46,6 +48,7 @@ Aplicar automaticamente em toda tarefa de desenvolvimento. Preservar instruçõe
 ## Carregar referências
 
 - Ler [references/specification.md](references/specification.md) para escolher artefatos OpenSpec.
+- Ler [references/spec-anchor.md](references/spec-anchor.md) para rastreabilidade e gate mecânico em tarefas normais/complexas.
 - Ler [references/verification.md](references/verification.md) antes de concluir trabalho substantivo.
 - Ler [references/compatibility.md](references/compatibility.md) ao adaptar fluxo para outra CLI/IDE.
 

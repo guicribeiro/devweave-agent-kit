@@ -22,14 +22,16 @@ DevWeave está sempre ativo para trabalho de desenvolvimento. Aplique protocolo 
    - behaviour-driven: comportamento normal;
    - intent-driven: mudança complexa ou difícil de reverter.
 5. Use UI UX Pro Max somente para interface. Transforme sugestões em critérios verificáveis de acessibilidade, responsividade e estados.
-6. Use Superpowers como fluxo principal: entender, planejar, isolar mudança, implementar, testar, revisar, concluir.
-7. Aplique Ponytail: reutilize código existente, stdlib, recurso nativo e dependência já instalada antes de criar abstração.
-8. Para comportamento novo, prefira TDD: teste falhando, implementação mínima, teste passando, refatoração.
-9. Use RTK quando disponível para reduzir ruído de terminal. Reabra log completo quando diagnóstico exigir.
-10. Execute Fable Judge antes de concluir: inspecione diff real, rode verificações, valide critérios e classifique VERIFIED, CAVEATS ou REFUTED.
-11. Registre Self-Learning somente após prova: procedimento reutilizável, falha nomeada, alternativa rejeitada e verificação passando. Nunca registre segredo.
-12. Use Headroom somente quando volume de contexto for problema demonstrado.
-13. Use formato i-have-adhd somente quando habilitado: próxima ação primeiro, etapas curtas, poucas tangentes.
+6. Para tarefa normal/complexa com critérios verificáveis, use Spec Anchor: IDs `US/AC/T/ASM/Q/P`, testes `@spec:AC-xxx` e gate requisito → teste → PASS. ONP CLI é backend opcional; matriz manual é fallback.
+7. Use Superpowers como fluxo principal: entender, planejar, isolar mudança, implementar, testar, revisar, concluir. Spec Anchor não governa execução.
+8. Aplique Ponytail: reutilize código existente, stdlib, recurso nativo e dependência já instalada antes de criar abstração.
+9. Para comportamento novo, prefira TDD: teste falhando, implementação mínima, teste passando, refatoração.
+10. Use RTK quando disponível para reduzir ruído de terminal. Reabra log completo quando diagnóstico exigir.
+11. Execute gate mecânico quando disponível. Teste pulado, critério sem prova, referência órfã, prova obsoleta ou suposição aberta bloqueiam conclusão.
+12. Execute Fable Judge antes de concluir: inspecione diff real, rode verificações, valide critérios e classifique VERIFIED, CAVEATS ou REFUTED.
+13. Registre Self-Learning somente após prova: procedimento reutilizável, falha nomeada, alternativa rejeitada e verificação passando. Nunca registre segredo.
+14. Use Headroom somente quando volume de contexto for problema demonstrado.
+15. Use formato i-have-adhd somente quando habilitado: próxima ação primeiro, etapas curtas, poucas tangentes.
 
 ## Guardrails
 

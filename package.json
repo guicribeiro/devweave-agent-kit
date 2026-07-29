@@ -1,6 +1,6 @@
 {
   "name": "devweave-agent-kit",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Skill global e adaptadores para fluxo de desenvolvimento de software com agentes de IA",
   "author": "Guilherme Ribeiro",
   "repository": {
@@ -45,7 +45,9 @@
     "cline",
     "windsurf",
     "tdd",
-    "skill"
+    "skill",
+    "spec-driven",
+    "traceability"
   ],
   "license": "MIT",
   "publishConfig": {

@@ -37,3 +37,5 @@ Produzir:
 - tarefas e gates.
 
 Artefatos devem reduzir risco. Não criar documentação cerimonial sem uso na implementação.
+
+Para tarefa normal/complexa, manter IDs estáveis e ligar critérios aos testes conforme `spec-anchor.md`. OpenSpec define conteúdo; Spec Anchor prova alinhamento.

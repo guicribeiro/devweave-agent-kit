@@ -89,6 +89,12 @@ bun add -g github:guicribeiro/devweave-agent-kit
 devweave install
 ```
 
+## Referências das skills
+
+Lista completa, créditos, papéis e regras de integração: [REFERENCES.md](REFERENCES.md).
+
+Referências principais: [Superpowers](https://github.com/obra/superpowers), [OpenSpec](https://github.com/intent-driven-dev/openspec-schemas), [Fable Method](https://github.com/Sahir619/fable-method), [ONP Spec-Driven](https://github.com/onovoprogramador/onp-spec-driven), [Graphify](https://github.com/Graphify-Labs/graphify), [UI UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill), [Ponytail](https://github.com/DietrichGebert/ponytail), [RTK](https://github.com/rtk-ai/rtk) e [Self-Learning Skills](https://github.com/kulaxyz/self-learning-skills).
+
 ## Instalação futura pelo npm
 
 Comandos abaixo funcionarão depois da publicação no npm:
@@ -194,6 +200,7 @@ Nunca incluir tokens npm no repositório. Configurar provenance/CI conforme pol�
 - `ARCHITECTURE.md`: desenho e compatibilidade.
 - `adapters/`: traduções por plataforma.
 - `examples/uso.md`: cenários.
+- `REFERENCES.md`: referências externas, créditos e papéis.
 
 ## Compatibilidade e limites
 

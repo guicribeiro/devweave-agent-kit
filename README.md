@@ -12,6 +12,13 @@ Funciona com Codex, Claude Code, Cursor, OpenCode, Gemini CLI, GitHub Copilot, W
 
 Criado e mantido por [Guilherme Ribeiro](https://github.com/guicribeiro). Licença MIT.
 
+## Prompts prontos
+
+[PROMPTS.md](PROMPTS.md) reúne prompts copiáveis para avaliação, revisão, modificação,
+testes, segurança, arquitetura, design, sistemas, sites, automações e landing pages.
+Cada prompt combina DevWeave, Spec Anchor, Fable Judge e, quando relevante, Mantis e
+Hallmark.
+
 ## Por que DevWeave
 
 Agentes costumam falhar de quatro formas: começam sem critério de pronto, criam arquitetura demais, confundem teste verde com prova e encerram sem revisar escopo. DevWeave trata esses pontos como um único protocolo.
@@ -290,6 +297,7 @@ adapters/                notas por plataforma
 examples/                cenários de uso
 test/                    testes do instalador
 REFERENCES.md            créditos e integrações
+PROMPTS.md               prompts prontos por atividade e tipo de produto
 ```
 
 ## Licença

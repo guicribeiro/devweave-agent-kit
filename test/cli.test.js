@@ -120,3 +120,27 @@ test("skill instalada inclui orquestração enxuta @spec:AC-002", () => {
     fs.rmSync(target, { recursive: true, force: true });
   }
 });
+
+test("README expõe catálogo completo de prompts @spec:AC-003", () => {
+  const readme = fs.readFileSync(path.join(root, "README.md"), "utf8");
+  const prompts = fs.readFileSync(path.join(root, "PROMPTS.md"), "utf8");
+  const packageJson = JSON.parse(fs.readFileSync(path.join(root, "package.json"), "utf8"));
+
+  assert.match(readme, /\[PROMPTS\.md\]\(PROMPTS\.md\)/);
+  for (const section of [
+    "Avaliação completa",
+    "Revisão de mudança ou PR",
+    "Modificação segura",
+    "Estratégia e criação de testes",
+    "Segurança defensiva",
+    "Arquitetura e evolução de sistema",
+    "Design de produto e interface",
+    "Criação de sistema ou aplicação",
+    "Criação ou revisão de site",
+    "Criação ou revisão de automação",
+    "Criação ou revisão de landing page",
+  ]) {
+    assert.match(prompts, new RegExp(section));
+  }
+  assert.ok(packageJson.files.includes("PROMPTS.md"));
+});

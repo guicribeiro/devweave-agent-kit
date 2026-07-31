@@ -22,6 +22,7 @@
     "templates",
     "adapters",
     "examples",
+    "PROMPTS.md",
     "REFERENCES.md",
     "README.md",
     "LICENSE"

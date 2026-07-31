@@ -2,7 +2,7 @@
 
 > Fluxo de engenharia always-on, proporcional ao risco e portável entre agentes de IA.
 
-[![npm](https://img.shields.io/npm/v/devweave-agent-kit?color=cb3837)](https://www.npmjs.com/package/devweave-agent-kit)
+[![Release](https://img.shields.io/github/v/release/guicribeiro/devweave-agent-kit?label=release)](https://github.com/guicribeiro/devweave-agent-kit/releases)
 [![Node.js 18+](https://img.shields.io/badge/Node.js-18%2B-339933)](https://nodejs.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-f2c94c)](LICENSE)
 
@@ -64,10 +64,10 @@ Versão 0.5 incorpora melhores princípios de [oh-my-opencode-slim](https://gith
 
 ## Instalação rápida
 
-### npm
+### Direto do GitHub
 
 ```sh
-npm install -g devweave-agent-kit
+npm install -g github:guicribeiro/devweave-agent-kit
 devweave install
 devweave doctor
 ```
@@ -75,7 +75,7 @@ devweave doctor
 ### Bun
 
 ```sh
-bun add -g devweave-agent-kit
+bun add -g github:guicribeiro/devweave-agent-kit
 devweave install
 devweave doctor
 ```
@@ -83,10 +83,10 @@ devweave doctor
 ### Sem instalação global
 
 ```sh
-npx devweave-agent-kit install
+npx github:guicribeiro/devweave-agent-kit install
 ```
 
-### Direto do GitHub
+### Desenvolvimento local
 
 ```sh
 git clone https://github.com/guicribeiro/devweave-agent-kit.git
@@ -265,6 +265,8 @@ Antes de release:
 6. criar tag/release depois da publicação confirmada.
 
 Tokens npm, credenciais e segredos nunca entram em repositório ou logs.
+
+Publicação npm depende de autenticação do mantenedor e disponibilidade do nome. Enquanto pacote não estiver confirmado no registro, use GitHub ou artefatos da release.
 
 ## Limites
 

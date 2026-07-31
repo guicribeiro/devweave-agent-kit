@@ -1,70 +1,92 @@
 # DevWeave Agent Kit
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Node.js 18+](https://img.shields.io/badge/Node.js-18%2B-339933.svg)](https://nodejs.org/)
+> Fluxo de engenharia always-on, proporcional ao risco e portável entre agentes de IA.
 
-Skill global, aberta, always-on e multiplataforma para agentes de desenvolvimento de software.
+[![npm](https://img.shields.io/npm/v/devweave-agent-kit?color=cb3837)](https://www.npmjs.com/package/devweave-agent-kit)
+[![Node.js 18+](https://img.shields.io/badge/Node.js-18%2B-339933)](https://nodejs.org/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-f2c94c)](LICENSE)
 
-DevWeave instala skill e regras para conduzir desenvolvimento com IA em Codex CLI/App, Claude Code, Cursor, OpenCode, Gemini CLI, GitHub Copilot, Windsurf, Cline e agentes que leem `AGENTS.md`.
+DevWeave transforma pedidos de desenvolvimento em fluxo verificável: entende risco, define pronto, escolhe profundidade de especificação, planeja evidência, implementa menor mudança segura e valida resultado real.
 
-Projeto criado e mantido por [Guilherme Ribeiro](https://github.com/guicribeiro), sob licença MIT.
+Funciona com Codex, Claude Code, Cursor, OpenCode, Gemini CLI, GitHub Copilot, Windsurf, Cline e agentes compatíveis com `AGENTS.md`. Ferramentas externas são opcionais; cada etapa possui fallback.
 
+Criado e mantido por [Guilherme Ribeiro](https://github.com/guicribeiro). Licença MIT.
 
-## Always-on
+## Por que DevWeave
 
-DevWeave vira fluxo padrão de engenharia. Usuário não precisa escrever “use DevWeave” em cada pedido.
+Agentes costumam falhar de quatro formas: começam sem critério de pronto, criam arquitetura demais, confundem teste verde com prova e encerram sem revisar escopo. DevWeave trata esses pontos como um único protocolo.
 
-- Codex: skill global + `~/.codex/AGENTS.md`.
-- Claude Code: skill global + `~/.claude/CLAUDE.md`.
-- Cursor: regra global com `alwaysApply: true`.
-- OpenCode, Gemini CLI, Windsurf e Cline: arquivo global de instruções/regras.
-- GitHub Copilot: ativação confiável por projeto em `.github/copilot-instructions.md`.
-- Agentes genéricos: `AGENTS.md`.
+- Profundidade proporcional: tarefa trivial continua curta; mudança crítica recebe gates completos.
+- Evidência antes de conclusão: cada afirmação importante precisa de caminho observável.
+- Orquestração enxuta: lanes claras, paralelismo sem conflito e custo de delegação controlado.
+- Menor solução completa: reutiliza projeto e plataforma antes de criar abstrações.
+- Design com qualidade: Hallmark, acessibilidade, responsividade e validação visual.
+- Segurança defensiva: Mantis, sandbox, threat model, contrato de evidência e revisão humana.
+- Aprendizado conservador: só registra processo reutilizável depois de atrito repetido e prova.
 
-Always-on ajusta profundidade ao risco. Correção trivial continua curta. Mudança complexa recebe especificação, TDD e verificação completa. Use `sem devweave` para desativar em pedido específico.
-
-## Objetivo
-
-Unificar boas práticas de agentes sem transformar cada ferramenta em novo orquestrador. DevWeave define papéis claros, usa profundidade proporcional ao risco e funciona com fallbacks quando integrações opcionais não estão instaladas.
-
-## Fluxo consolidado
-
-Fable classifica e define pronto. Graphify ajuda em base grande. OpenSpec escolhe profundidade da especificação. UI UX entra só em interface. Superpowers governa implementação. Ponytail reduz complexidade. TDD comprova comportamento. RTK reduz ruído. Fable Judge verifica. Self-Learning registra procedimento comprovado. Headroom e i-have-adhd permanecem opcionais.
-
-Ferramentas citadas não acompanham pacote. DevWeave funciona por fallback quando não estiverem instaladas.
+## Fluxo
 
 ```text
-Fable → Graphify? → OpenSpec → Spec Anchor? → UI UX? → Superpowers
-      → Ponytail → TDD → gate mecânico? → RTK? → Fable Judge
-      → Self-Learning? → entrega comprovada
+Pedido
+  ↓
+Fable: classificar risco + definir pronto
+  ↓
+Entender base: busca seletiva ou Graphify/codemap
+  ↓
+OpenSpec + Spec Anchor: intenção → AC → tarefa → teste
+  ↓
+Plano de evidência + grafo de trabalho + lanes
+  ↓
+Design? Hallmark     Segurança? Mantis
+  ↘                 ↙
+Superpowers + Ponytail + TDD
+  ↓
+Simplificação segura
+  ↓
+Fable Judge: diff + checks + critérios + escopo
+  ↓
+VERIFIED | CAVEATS | REFUTED
 ```
 
-`?` indica camada opcional ou condicional.
+Camadas condicionais entram somente quando reduzem risco real.
 
-## Spec Anchor
+## Novidades da versão 0.5
 
-Versão 0.3 adiciona rastreabilidade mecânica inspirada no projeto MIT [ONP Spec-Driven](https://github.com/onovoprogramador/onp-spec-driven):
+Versão 0.5 incorpora melhores princípios de [oh-my-opencode-slim](https://github.com/alvinunreal/oh-my-opencode-slim), sem acoplar DevWeave a modelos ou runtime específico:
 
-- histórias `US-xxx`;
-- critérios `AC-xxx`;
-- tarefas `T-xxx`;
-- testes `@spec:AC-xxx`;
-- suposições `ASM-xxx` e perguntas `Q-xxx`;
-- princípios executáveis `P-xxx`;
-- bloqueio de critério sem teste, teste pulado, prova obsoleta, referência órfã e suposição aberta.
+- plano de evidência antes de trabalho não trivial;
+- lanes para exploração, pesquisa, arquitetura, design, implementação, observação e conselho;
+- limiar explícito para executar diretamente ou delegar;
+- grafo curto com dependências, ownership de escrita e gates;
+- paralelismo somente entre escopos independentes;
+- simplificação posterior aos testes, preservando comportamento;
+- aprendizado baseado em atrito repetido, aceitando “não criar nada” como resultado correto.
 
-OpenSpec continua definindo especificação. Superpowers continua governando implementação. Spec Anchor prova alinhamento. ONP CLI serve como backend opcional; sem ele, DevWeave usa matriz manual equivalente.
+## Instalação rápida
 
-Instalação opcional do motor:
+### npm
 
 ```sh
-npm install -g @onovoprogramador/onp-spec
+npm install -g devweave-agent-kit
+devweave install
 devweave doctor
 ```
 
-## Instalação pelo GitHub
+### Bun
 
-Clonar e instalar:
+```sh
+bun add -g devweave-agent-kit
+devweave install
+devweave doctor
+```
+
+### Sem instalação global
+
+```sh
+npx devweave-agent-kit install
+```
+
+### Direto do GitHub
 
 ```sh
 git clone https://github.com/guicribeiro/devweave-agent-kit.git
@@ -73,147 +95,201 @@ npm install -g .
 devweave install
 ```
 
-Comando `install` usa escopo global e todas plataformas por padrão.
+## Uso
 
-Executar sem instalação global:
+DevWeave fica ativo por padrão. Peça trabalho normalmente:
 
-```sh
-npx github:guicribeiro/devweave-agent-kit install
+```text
+adicione login por passkey
+corrija corrida no processamento da fila
+refatore este módulo sem alterar comportamento
+revise segurança do isolamento multi-tenant
+melhore esta dashboard
 ```
 
-Com Bun:
+Para desativar em pedido específico:
 
-```sh
-bun add -g github:guicribeiro/devweave-agent-kit
-devweave install
+```text
+sem devweave: explique este trecho
 ```
 
-## Referências das skills
+## Classificação proporcional
 
-Lista completa, créditos, papéis e regras de integração: [REFERENCES.md](REFERENCES.md).
+### Trivial
 
-Referências principais: [Superpowers](https://github.com/obra/superpowers), [OpenSpec](https://github.com/intent-driven-dev/openspec-schemas), [Fable Method](https://github.com/Sahir619/fable-method), [ONP Spec-Driven](https://github.com/onovoprogramador/onp-spec-driven), [Graphify](https://github.com/Graphify-Labs/graphify), [UI UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill), [Ponytail](https://github.com/DietrichGebert/ponytail), [RTK](https://github.com/rtk-ai/rtk) e [Self-Learning Skills](https://github.com/kulaxyz/self-learning-skills).
+Edição local, reversível, risco baixo. Usa intenção curta, check direto e revisão de diff.
 
-## Instalação pelo npm
+### Normal
+
+Comportamento delimitado ou mudança em poucos componentes. Usa critérios verificáveis, plano de evidência, TDD quando aplicável e gate final.
+
+### Complexa
+
+Arquitetura, auth, dados, segurança, migração, concorrência, mudança ampla ou causa incerta. Usa especificação intent-driven, Spec Anchor, grafo de trabalho, threat model quando relevante e revisão independente.
+
+## Spec Anchor
+
+Spec Anchor liga requisito a prova:
+
+- `US-xxx`: história ou objetivo;
+- `AC-xxx`: critério de aceite;
+- `T-xxx`: tarefa;
+- `ASM-xxx`: suposição;
+- `Q-xxx`: pergunta aberta;
+- `P-xxx`: princípio obrigatório;
+- `@spec:AC-xxx`: liga teste ao critério.
+
+Conclusão bloqueada quando critério não possui prova, teste está pulado, referência ficou órfã ou suposição importante permanece aberta.
+
+ONP CLI pode executar gate mecânico. Sem ONP, DevWeave usa matriz manual equivalente.
 
 ```sh
-npm install -g devweave-agent-kit
-devweave install
+npm install -g @onovoprogramador/onp-spec
+devweave doctor
 ```
 
-```sh
-bun add -g devweave-agent-kit
-devweave install
-```
+## Orquestração enxuta
 
-Sem instalação global:
+DevWeave separa trabalho por natureza, não por personagem fixo. Plataforma pode mapear lanes para agentes, modelos, ferramentas ou execução local.
 
-```sh
-npx devweave-agent-kit install
-```
+| Lane | Entra quando | Evitar quando |
+| --- | --- | --- |
+| Exploração | Base ampla ou caminho desconhecido | Arquivo e símbolo já conhecidos |
+| Pesquisa | API atual, versão ou fonte externa muda decisão | Conhecimento estável já disponível |
+| Arquitetura | Trade-off caro, risco alto ou debugging persistente | Decisão rotineira e reversível |
+| Design | Interface visível exige julgamento e acabamento | Backend sem impacto visual |
+| Implementação | Escopo, arquivos e critérios estão fechados | Descoberta ou decisão ainda abertas |
+| Observação | Imagem, PDF ou diagrama precisa virar contexto | Texto simples que será editado |
+| Conselho | Decisão crítica se beneficia de discordância | Custo excede impacto da decisão |
+
+Paralelismo exige independência e ownership de escrita sem sobreposição.
+
+## Design
+
+Hallmark funciona como gate de macroestrutura, linguagem visual e rejeição de padrões genéricos. Ferramentas e fontes complementares possuem papéis limitados:
+
+- v0, Google Stitch, Subframe e Antigravity: exploração e prototipação;
+- Aceternity UI e 21st.dev: componentes sujeitos a licença e revisão;
+- Mobbin: fluxos reais;
+- Dribbble e Pinterest: direção visual, nunca cópia literal.
+
+Gate visual cobre teclado, foco, semântica, contraste WCAG AA, estados, breakpoints, conteúdo real, movimento reduzido, desempenho e regressão visual.
+
+## Segurança e arquitetura
+
+Mantis entra em auth, autorização, multi-tenant, pagamentos, parsers, uploads, IPC, firmware, IaC, supply chain e fronteiras de confiança.
+
+Regras obrigatórias:
+
+- começar em leitura;
+- fixar alvo, snapshot, escopo e fora de escopo;
+- modelar ativos, identidades, dados e trust boundaries;
+- reproduzir somente com autorização, em sandbox isolado;
+- nunca executar payload não revisado no host;
+- tratar scanner e teste verde como evidência parcial;
+- exigir revisão humana antes de divulgar achado;
+- nunca declarar segurança total.
 
 ## Comandos
 
 ```text
-devweave install [--global|--project] [--platform NOME] [--target CAMINHO] [--force]
-devweave update  [mesmas opções]
-devweave uninstall [mesmas opções sem --force]
-devweave doctor [--global|--project] [--target CAMINHO]
+devweave install   [--global|--project] [--platform NOME] [--target CAMINHO] [--force]
+devweave update    [--global|--project] [--platform NOME] [--target CAMINHO] [--force]
+devweave uninstall [--global|--project] [--platform NOME] [--target CAMINHO]
+devweave doctor    [--global|--project] [--target CAMINHO]
 devweave list
 devweave print
 ```
 
-Padrão: instalação global para todas plataformas.
-
-Exemplos:
+Padrão: instalação global em todas plataformas suportadas.
 
 ```sh
 devweave install --global --platform codex
 devweave install --project --platform cursor
 devweave install --project --platform all --target ./meu-projeto
-devweave doctor --global
 devweave update --global --platform all
-devweave uninstall --project --platform cline
+devweave doctor --global
 ```
 
-Aliases aceitos: `claude-code`, `gemini-cli`, `github-copilot`, `codex-cli`, `codex-app`.
+Aliases: `claude-code`, `gemini-cli`, `github-copilot`, `codex-cli`, `codex-app`.
 
-## Destinos
+## Plataformas e destinos
 
-- Codex: `~/.codex/skills/devweave`
-- Claude Code: `~/.claude/skills/devweave`
-- Cursor: `~/.cursor/rules/devweave.mdc`
-- OpenCode: `~/.config/opencode/AGENTS.md`
-- Gemini CLI: `~/.gemini/GEMINI.md`
-- Copilot: fonte global em `~/.config/devweave/copilot-instructions.md`; projeto em `.github/copilot-instructions.md`
-- Windsurf: `~/.codeium/windsurf/memories/global_rules.md`
-- Cline: `~/.cline/rules/devweave.md`
-- Genérico: `~/.config/devweave/AGENTS.md`
+| Plataforma | Destino global ou recomendado |
+| --- | --- |
+| Codex | `~/.codex/skills/devweave` + `~/.codex/AGENTS.md` |
+| Claude Code | `~/.claude/skills/devweave` + `~/.claude/CLAUDE.md` |
+| Cursor | `~/.cursor/rules/devweave.mdc` |
+| OpenCode | `~/.config/opencode/AGENTS.md` |
+| Gemini CLI | `~/.gemini/GEMINI.md` |
+| GitHub Copilot | `.github/copilot-instructions.md` por projeto |
+| Windsurf | `~/.codeium/windsurf/memories/global_rules.md` |
+| Cline | `~/.cline/rules/devweave.md` |
+| Genérico | `~/.config/devweave/AGENTS.md` |
 
-Use `--project` quando plataforma priorizar regras do repositório. Caminhos podem mudar entre versões dos produtos; confirme documentação atual antes de rollout em equipe.
+Use `--project` quando plataforma priorizar regra do repositório.
 
-## Publicar nova versão no npm
+## Papéis das ferramentas
 
-1. Alterar versão no `package.json`.
-2. Criar conta npm, habilitar 2FA e autenticar:
+DevWeave integra ideias, não redistribui todas dependências.
 
-   ```sh
-   npm login
-   ```
+- Fable: risco, pronto e julgamento.
+- OpenSpec: profundidade da especificação.
+- Spec Anchor/ONP: rastreabilidade e gate.
+- Superpowers: execução principal.
+- Ponytail: menor solução completa.
+- Hallmark: qualidade visual.
+- Mantis: segurança defensiva e arquitetura.
+- RTK: redução de ruído de terminal.
+- Fable Judge: verificação independente.
+- Self-Learning/Reflect: aprendizado comprovado e conservador.
+- Headroom: compressão somente quando contexto virou problema.
 
-3. Validar pacote:
+Créditos e links completos: [REFERENCES.md](REFERENCES.md).
 
-   ```sh
-   npm test
-   npm pack --dry-run
-   ```
-
-4. Publicar nova versão:
-
-   ```sh
-   npm publish --access public
-   ```
-
-5. Criar release/tag somente após publicação confirmada:
-
-   ```sh
-   npm version patch
-   npm publish
-   ```
-
-Nunca incluir tokens npm no repositório. Configurar provenance/CI conforme política do projeto.
-
-## Arquivos
-
-- `templates/MASTER_PROMPT.md`: prompt mestre.
-- `templates/AGENTS.md`: regra portátil.
-- `skill/devweave/SKILL.md`: skill global.
-- `ARCHITECTURE.md`: desenho e compatibilidade.
-- `adapters/`: traduções por plataforma.
-- `examples/uso.md`: cenários.
-- `REFERENCES.md`: referências externas, créditos e papéis.
-
-## Compatibilidade e limites
-
-- Node.js 18 ou superior.
-- Bun compatível com APIs Node usadas pelo instalador.
-- Caminhos globais de IDEs podem mudar entre versões.
-- Ferramentas de terceiros não são baixadas automaticamente.
-- Instruções locais do projeto e regras da plataforma têm precedência.
-- `doctor` confirma arquivos instalados, não disponibilidade de cada ferramenta externa.
-- `doctor` informa se ONP CLI está disponível para gate Spec Anchor.
-- Copilot não oferece regra global portátil confiável; use `devweave install --project --platform copilot` em cada repositório.
-
-## Desenvolvimento
+## Verificação e desenvolvimento
 
 ```sh
 npm test
 npm run doctor
-npm pack --dry-run
+npm run pack:check
 ```
 
-Contribuições podem usar issues e pull requests. Mudanças devem preservar instalação, atualização e remoção sem apagar regras externas ao bloco gerenciado.
+Antes de release:
+
+1. atualizar versão;
+2. executar testes;
+3. validar pacote com `npm pack --dry-run`;
+4. revisar diff e conteúdo do tarball;
+5. publicar somente com autenticação e autorização;
+6. criar tag/release depois da publicação confirmada.
+
+Tokens npm, credenciais e segredos nunca entram em repositório ou logs.
+
+## Limites
+
+- Node.js 18 ou superior.
+- Bun funciona sobre APIs Node usadas pelo instalador.
+- Caminhos globais podem mudar entre versões das plataformas.
+- Ferramentas externas não são instaladas automaticamente.
+- `doctor` confirma instalação e backend ONP; não valida cada integração externa.
+- Regras locais e instruções superiores mantêm precedência.
+- Copilot exige instalação por projeto para comportamento confiável.
+
+## Estrutura
+
+```text
+bin/                     CLI
+src/                     instalador e plataformas
+skill/devweave/          skill principal
+skill/devweave/references/ protocolos especializados
+templates/               regras e prompt mestre
+adapters/                notas por plataforma
+examples/                cenários de uso
+test/                    testes do instalador
+REFERENCES.md            créditos e integrações
+```
 
 ## Licença
 
-[MIT](LICENSE). Copyright © 2026 Guilherme Ribeiro.
+[MIT](LICENSE) © 2026 Guilherme Ribeiro.

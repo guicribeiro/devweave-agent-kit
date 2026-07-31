@@ -28,15 +28,17 @@ Aplicar automaticamente em toda tarefa de desenvolvimento. Preservar instruçõe
    - behaviour-driven para comportamento comum;
    - intent-driven para mudança complexa ou difícil de reverter.
 5. Para tarefa normal/complexa com critérios verificáveis, aplicar Spec Anchor. Ler [references/spec-anchor.md](references/spec-anchor.md).
-6. Para interface, ler [references/ui.md](references/ui.md). Não ativar UI UX para backend puro.
-7. Planejar e implementar usando Superpowers como fluxo principal. Não entregar execução ao Spec Anchor.
+6. Para interface, ler [references/ui.md](references/ui.md). Usar Hallmark como gate de qualidade visual; usar fontes de inspiração e geradores somente conforme contexto. Não ativar camada visual para backend puro.
+7. Planejar e implementar usando Superpowers como fluxo principal. Para tarefa normal/complexa, ler [references/orchestration.md](references/orchestration.md), montar grafo curto de trabalho e rotear somente lanes delimitadas. Não entregar execução ao Spec Anchor.
 8. Aplicar Ponytail antes de criar código: reutilizar projeto, stdlib, plataforma e dependência existente; escrever menor solução completa e legível.
 9. Para comportamento, aplicar TDD: falha observada, implementação mínima, sucesso observado, refatoração. Ligar teste ao critério quando Spec Anchor estiver ativo.
 10. Usar RTK quando disponível. Recuperar saída completa quando compactação esconder causa.
 11. Executar gate mecânico quando ONP CLI estiver disponível; usar matriz manual equivalente como fallback.
-12. Verificar com Fable Judge: inspecionar diff, reexecutar checks, validar critérios, detectar teste enfraquecido e mudança fora de escopo.
-13. Classificar resultado VERIFIED, CAVEATS ou REFUTED.
-14. Registrar Self-Learning só após procedimento reutilizável comprovado. Exigir falha nomeada, alternativa rejeitada e check passando. Nunca registrar segredo.
+12. Para segurança, arquitetura ou teste adversarial, ler [references/mantis.md](references/mantis.md) e aplicar trilha Mantis proporcional ao risco.
+13. Antes da verificação final, simplificar somente código alterado quando comportamento, erros, efeitos colaterais e desempenho relevante permanecerem comprovadamente iguais.
+14. Verificar com Fable Judge: inspecionar diff, reexecutar checks, validar critérios, detectar teste enfraquecido e mudança fora de escopo.
+15. Classificar resultado VERIFIED, CAVEATS ou REFUTED.
+16. Registrar Self-Learning só após atrito repetido e procedimento reutilizável comprovado. Preferir menor artefato útil; criar nada é resultado válido. Exigir falha nomeada, alternativa rejeitada e check passando. Nunca registrar segredo.
 
 ## Controlar opções
 
@@ -51,6 +53,8 @@ Aplicar automaticamente em toda tarefa de desenvolvimento. Preservar instruçõe
 - Ler [references/spec-anchor.md](references/spec-anchor.md) para rastreabilidade e gate mecânico em tarefas normais/complexas.
 - Ler [references/verification.md](references/verification.md) antes de concluir trabalho substantivo.
 - Ler [references/compatibility.md](references/compatibility.md) ao adaptar fluxo para outra CLI/IDE.
+- Ler [references/mantis.md](references/mantis.md) para segurança, arquitetura, reprodução defensiva e testes adversariais.
+- Ler [references/orchestration.md](references/orchestration.md) para roteamento, grafo de trabalho, paralelismo e plano de evidência.
 
 ## Relatar
 

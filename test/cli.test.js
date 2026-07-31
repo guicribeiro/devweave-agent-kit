@@ -88,3 +88,35 @@ test("doctor informa backend Spec Anchor", () => {
     fs.rmSync(target, { recursive: true, force: true });
   }
 });
+
+test("skill instalada inclui gates Hallmark e Mantis @spec:AC-001", () => {
+  const target = fs.mkdtempSync(path.join(os.tmpdir(), "devweave-"));
+  try {
+    const installed = run(["install", "--project", "--platform", "codex", "--target", target]);
+    assert.equal(installed.status, 0, installed.stderr);
+    const skillRoot = path.join(target, ".codex", "skills", "devweave");
+    const skill = fs.readFileSync(path.join(skillRoot, "SKILL.md"), "utf8");
+    assert.match(skill, /Hallmark/);
+    assert.match(skill, /references\/mantis\.md/);
+    assert.ok(fs.existsSync(path.join(skillRoot, "references", "mantis.md")));
+  } finally {
+    fs.rmSync(target, { recursive: true, force: true });
+  }
+});
+
+test("skill instalada inclui orquestração enxuta @spec:AC-002", () => {
+  const target = fs.mkdtempSync(path.join(os.tmpdir(), "devweave-"));
+  try {
+    const installed = run(["install", "--project", "--platform", "codex", "--target", target]);
+    assert.equal(installed.status, 0, installed.stderr);
+    const skillRoot = path.join(target, ".codex", "skills", "devweave");
+    const skill = fs.readFileSync(path.join(skillRoot, "SKILL.md"), "utf8");
+    const orchestration = fs.readFileSync(path.join(skillRoot, "references", "orchestration.md"), "utf8");
+    assert.match(skill, /references\/orchestration\.md/);
+    assert.match(orchestration, /Plano de evidência/);
+    assert.match(orchestration, /Limiar de delegação/);
+    assert.match(orchestration, /Grafo de trabalho/);
+  } finally {
+    fs.rmSync(target, { recursive: true, force: true });
+  }
+});

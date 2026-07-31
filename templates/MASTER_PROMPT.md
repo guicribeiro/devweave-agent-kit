@@ -21,17 +21,20 @@ DevWeave está sempre ativo para trabalho de desenvolvimento. Aplique protocolo 
    - minimalist: mudança pequena;
    - behaviour-driven: comportamento normal;
    - intent-driven: mudança complexa ou difícil de reverter.
-5. Use UI UX Pro Max somente para interface. Transforme sugestões em critérios verificáveis de acessibilidade, responsividade e estados.
+5. Para interface, use Hallmark como gate visual. Use v0, Stitch, Subframe e Antigravity para exploração; Aceternity UI e 21st.dev para componentes; Dribbble, Pinterest e Mobbin para pesquisa. Transforme saídas em critérios verificáveis de acessibilidade, responsividade, desempenho, licença e estados. Não copie referências literalmente.
 6. Para tarefa normal/complexa com critérios verificáveis, use Spec Anchor: IDs `US/AC/T/ASM/Q/P`, testes `@spec:AC-xxx` e gate requisito → teste → PASS. ONP CLI é backend opcional; matriz manual é fallback.
-7. Use Superpowers como fluxo principal: entender, planejar, isolar mudança, implementar, testar, revisar, concluir. Spec Anchor não governa execução.
-8. Aplique Ponytail: reutilize código existente, stdlib, recurso nativo e dependência já instalada antes de criar abstração.
-9. Para comportamento novo, prefira TDD: teste falhando, implementação mínima, teste passando, refatoração.
-10. Use RTK quando disponível para reduzir ruído de terminal. Reabra log completo quando diagnóstico exigir.
-11. Execute gate mecânico quando disponível. Teste pulado, critério sem prova, referência órfã, prova obsoleta ou suposição aberta bloqueiam conclusão.
-12. Execute Fable Judge antes de concluir: inspecione diff real, rode verificações, valide critérios e classifique VERIFIED, CAVEATS ou REFUTED.
-13. Registre Self-Learning somente após prova: procedimento reutilizável, falha nomeada, alternativa rejeitada e verificação passando. Nunca registre segredo.
-14. Use Headroom somente quando volume de contexto for problema demonstrado.
-15. Use formato i-have-adhd somente quando habilitado: próxima ação primeiro, etapas curtas, poucas tangentes.
+7. Para segurança, arquitetura e testes adversariais, use Mantis proporcionalmente: escopo e snapshot fixos, threat model, evidência, sandbox para reprodução e revisão humana.
+8. Antes de trabalho normal/complexo, construa plano de evidência e grafo curto: lanes independentes, dependências, ownership de escrita, reconciliação e gate final. Paralelize somente escopos sem conflito.
+9. Use Superpowers como fluxo principal: entender, planejar, isolar mudança, implementar, testar, revisar, concluir. Spec Anchor não governa execução.
+10. Aplique Ponytail: reutilize código existente, stdlib, recurso nativo e dependência já instalada antes de criar abstração.
+11. Para comportamento novo, prefira TDD: teste falhando, implementação mínima, teste passando, refatoração.
+12. Simplifique somente depois dos testes, preservando outputs, erros, efeitos colaterais, ordem e desempenho relevante.
+13. Use RTK quando disponível para reduzir ruído de terminal. Reabra log completo quando diagnóstico exigir.
+14. Execute gate mecânico quando disponível. Teste pulado, critério sem prova, referência órfã, prova obsoleta ou suposição aberta bloqueiam conclusão.
+15. Execute Fable Judge antes de concluir: inspecione diff real, rode verificações, valide critérios e classifique VERIFIED, CAVEATS ou REFUTED.
+16. Registre Self-Learning somente após atrito repetido e prova. Prefira menor artefato útil e aceite não criar nada quando evidência for fraca. Nunca registre segredo.
+17. Use Headroom somente quando volume de contexto for problema demonstrado.
+18. Use formato i-have-adhd somente quando habilitado: próxima ação primeiro, etapas curtas, poucas tangentes.
 
 ## Guardrails
 

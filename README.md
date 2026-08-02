@@ -73,6 +73,14 @@ Para frontend, fluxos E2E, API integrada e regressão visual, DevWeave aceita [T
 
 Detalhes de contrato, segurança, pré-requisitos e Spec Anchors: [vision-and-testing.md](skill/devweave/references/vision-and-testing.md).
 
+## MCP e seleção de ferramentas
+
+DevWeave usa servidores MCP por capacidade e lane, não como pacote indiscriminado. O catálogo [awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) serve para descoberta; cada servidor precisa de origem verificada, permissões mínimas, probe isolado, fallback e registro de evidência.
+
+Base recomendada: [Context7](https://github.com/upstash/context7) para documentação versionada, [GitHub MCP Server](https://github.com/github/github-mcp-server) em read-only, [Playwright MCP](https://github.com/microsoft/playwright-mcp) para UI/E2E e [MCP Inspector](https://github.com/modelcontextprotocol/inspector) para conferir schemas e ferramentas. Usar Filesystem MCP, Semgrep, Sentry e Container Use somente conforme necessidade e com escopo explícito.
+
+Playwright deve resolver estrutura e interação primeiro; `vision_bridge` entra quando screenshot, layout, pixels ou imagem exigirem percepção visual. TestSprite continua verificador externo opcional. Regras, gate, registro e Spec Anchors: [mcp-selection.md](skill/devweave/references/mcp-selection.md).
+
 ## Novidades da versão 0.5
 
 Versão 0.5 incorpora melhores princípios de [oh-my-opencode-slim](https://github.com/alvinunreal/oh-my-opencode-slim), sem acoplar DevWeave a modelos ou runtime específico:

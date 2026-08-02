@@ -26,6 +26,19 @@ DevWeave consolida papéis e regras. Não incorpora código, não instala todas 
 - [Work Mantis](https://github.com/guicribeiro/work-mantis) — adaptação de domínio, gates e contrato de evidência.
 - [TestSprite](https://www.testsprite.com/) — geração e execução de testes comportamentais contra aplicação em execução, com evidências para agentes; [documentação MCP](https://testspriteinc.mintlify.app/mcp/getting-started/overview).
 
+## MCP e integrações
+
+- [awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) — catálogo para descoberta de servidores MCP; não é certificação de segurança ou compatibilidade.
+- [Model Context Protocol](https://modelcontextprotocol.io/) — protocolo e documentação base para integrações MCP.
+- [Context7](https://github.com/upstash/context7) — documentação atual e versionada para agentes.
+- [GitHub MCP Server](https://github.com/github/github-mcp-server) — acesso controlável a repositórios, issues, PRs e outros recursos do GitHub.
+- [Playwright MCP](https://github.com/microsoft/playwright-mcp) — automação de navegador com snapshots estruturados.
+- [MCP Inspector](https://github.com/modelcontextprotocol/inspector) — inspeção e depuração de servidores MCP.
+- [Filesystem MCP](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem) — acesso delimitado a arquivos locais.
+- [Semgrep](https://github.com/semgrep/semgrep) — análise estática e regras de segurança.
+- [Sentry MCP](https://github.com/getsentry/sentry-mcp) — erros e performance.
+- [Container Use](https://github.com/dagger/container-use) — execução isolada para agentes de código.
+
 ## Eficiência e simplicidade
 
 - [Ponytail](https://github.com/DietrichGebert/ponytail) — evitar overengineering.

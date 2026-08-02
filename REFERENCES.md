@@ -24,6 +24,7 @@ DevWeave consolida papéis e regras. Não incorpora código, não instala todas 
 
 - [Google Mantis](https://github.com/google/mantis) — pipeline modular de revisão defensiva, reprodução e patch em ambiente isolado.
 - [Work Mantis](https://github.com/guicribeiro/work-mantis) — adaptação de domínio, gates e contrato de evidência.
+- [TestSprite](https://www.testsprite.com/) — geração e execução de testes comportamentais contra aplicação em execução, com evidências para agentes; [documentação MCP](https://testspriteinc.mintlify.app/mcp/getting-started/overview).
 
 ## Eficiência e simplicidade
 

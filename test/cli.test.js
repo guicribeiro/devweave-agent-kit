@@ -144,3 +144,21 @@ test("README expõe catálogo completo de prompts @spec:AC-003", () => {
   }
   assert.ok(packageJson.files.includes("PROMPTS.md"));
 });
+
+test("skill instalada documenta descoberta visual local e MiMo Free @spec:AC-VIS-005", () => {
+  const target = fs.mkdtempSync(path.join(os.tmpdir(), "devweave-"));
+  try {
+    const installed = run(["install", "--project", "--platform", "codex", "--target", target]);
+    assert.equal(installed.status, 0, installed.stderr);
+    const vision = fs.readFileSync(
+      path.join(target, ".codex", "skills", "devweave", "references", "vision-and-testing.md"),
+      "utf8",
+    );
+    assert.match(vision, /IA visual local/);
+    assert.match(vision, /MiMo Free/);
+    assert.match(vision, /opencode run --model provider\/model --file image --format json/);
+    assert.match(vision, /BLOCKED/);
+  } finally {
+    fs.rmSync(target, { recursive: true, force: true });
+  }
+});

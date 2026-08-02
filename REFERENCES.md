@@ -30,6 +30,9 @@ DevWeave consolida papéis e regras. Não incorpora código, não instala todas 
 
 - [awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) — catálogo para descoberta de servidores MCP; não é certificação de segurança ou compatibilidade.
 - [Model Context Protocol](https://modelcontextprotocol.io/) — protocolo e documentação base para integrações MCP.
+- [OpenCode Models](https://opencode.ai/docs/models/) — catálogo e capacidade declarada de modelos.
+- [OpenCode CLI](https://opencode.ai/docs/cli/) — execução não interativa e anexos de imagem.
+- [MiMo no OpenCode](https://mimo.mi.com/docs/en-US/news/previous-news/first-week-free) — disponibilidade MiMo Free no OpenCode Zen, sujeita a limites e período.
 - [Context7](https://github.com/upstash/context7) — documentação atual e versionada para agentes.
 - [GitHub MCP Server](https://github.com/github/github-mcp-server) — acesso controlável a repositórios, issues, PRs e outros recursos do GitHub.
 - [Playwright MCP](https://github.com/microsoft/playwright-mcp) — automação de navegador com snapshots estruturados.

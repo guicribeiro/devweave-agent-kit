@@ -73,6 +73,12 @@ Para frontend, fluxos E2E, API integrada e regressão visual, DevWeave aceita [T
 
 Detalhes de contrato, segurança, pré-requisitos e Spec Anchors: [vision-and-testing.md](skill/devweave/references/vision-and-testing.md).
 
+### Provedor visual
+
+O relay procura primeiro uma IA visual local já configurada ou disponível no sistema. Se não encontrar, pode usar OpenCode como fallback e selecionar MiMo Free somente quando o catálogo confirmar capacidade de entrada de imagem. Não há instalação automática, varredura de disco ou modelo presumido; ausência de capacidade retorna BLOCKED.
+
+OpenCode é serviço remoto neste fluxo. O comando usa contexto isolado, imagem validada e saída JSON. Consulte o [catálogo de modelos do OpenCode](https://opencode.ai/docs/models/) e a [CLI oficial](https://opencode.ai/docs/cli/). A disponibilidade gratuita do MiMo pode mudar conforme limite, autenticação e catálogo.
+
 ## MCP e seleção de ferramentas
 
 DevWeave usa servidores MCP por capacidade e lane, não como pacote indiscriminado. O catálogo [awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) serve para descoberta; cada servidor precisa de origem verificada, permissões mínimas, probe isolado, fallback e registro de evidência.

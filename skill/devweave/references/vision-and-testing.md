@@ -74,8 +74,9 @@ O relay deve localizar provedor por capacidade, não por nome presumido. Usar es
 2. outra IA visual local já configurada ou detectada no sistema;
 3. endpoint local autorizado compatível com entrada de imagem;
 4. catálogo do OpenCode, quando o comando estiver disponível;
-5. MiMo Free via OpenCode Zen, somente quando catálogo e probe confirmarem entrada de imagem;
-6. BLOCKED com causa e próxima ação.
+5. Freebuff, somente quando CLI/provedor expuser rota documentada de entrada de imagem;
+6. MiMo Free via OpenCode Zen, somente quando catálogo e probe confirmarem entrada de imagem;
+7. BLOCKED com causa e próxima ação.
 
 “Detectada no sistema” significa comando disponível no PATH, configuração explícita ou endpoint local já autorizado. Não varrer disco, não iniciar serviço desconhecido e não instalar ferramenta automaticamente.
 
@@ -86,12 +87,12 @@ Ollama deve ser tratado como local somente quando serviço e modelo estiverem ac
 Registrar junto da evidência:
 
     {
-      "provider_id": "ollama|local|opencode",
+      "provider_id": "ollama|local|opencode|freebuff",
       "model_id": "provider/model",
-      "source": "ollama_cli|ollama_api|path|config|endpoint|opencode_catalog",
+      "source": "ollama_cli|ollama_api|path|config|endpoint|opencode_catalog|freebuff_cli",
       "local_or_remote": "local|remote",
       "input_modalities": ["text", "image"],
-      "selected_by": "local_gemma|capability|preferred_free_fallback",
+      "selected_by": "local_gemma|capability|freebuff_capability|preferred_free_fallback",
       "auth_state": "none|configured|required",
       "evidence_ref": "..."
     }
@@ -110,6 +111,19 @@ Quando Ollama estiver disponível:
 6. validar resposta contra contrato visual_evidence e registrar modelo, origem local e capability.
 
 Ollama aceita imagem local no CLI e array images na API. Para análise repetida, usar API local e saída estruturada quando suportada. Não enviar imagem para nuvem Ollama sem autorização explícita.
+
+### Seleção Freebuff
+
+Freebuff é agente remoto de código, apoiado por anúncios, com seleção de modelos. A documentação oficial consultada não define uma API ou comando de visão. Portanto:
+
+1. detectar freebuff no PATH ou configuração autorizada;
+2. consultar ajuda e documentação da versão instalada;
+3. aceitar somente rota documentada que receba imagem e permita contexto isolado;
+4. enviar prompt mínimo e imagem validada apenas por essa rota;
+5. validar resposta contra visual_evidence e registrar Freebuff, modelo e dados enviados;
+6. sem rota de imagem confirmada, pular para OpenCode/MiMo ou retornar BLOCKED.
+
+Não usar Freebuff como modelo visual só porque ele oferece modelos gratuitos. Freebuff pode processar prompts, mensagens, código, arquivos e dados de repositório para prestar o serviço; declarar isso antes de enviar imagem.
 
 ### Seleção OpenCode
 
@@ -130,6 +144,7 @@ OpenCode recebe somente prompt mínimo, objetivo, contexto necessário e imagem 
 
 - OpenCode ausente: continuar com IA local visual configurada; caso contrário, BLOCKED.
 - Ollama disponível sem Gemma visual instalado: tentar outro modelo visual local ou OpenCode; informar ollama pull gemma3:4b como ação manual, sem executar download.
+- Freebuff disponível sem rota visual documentada: não enviar imagem como texto; tentar OpenCode/MiMo ou retornar BLOCKED.
 - catálogo sem modelo visual: BLOCKED, informando instalação/configuração necessária; não instalar sem autorização.
 - MiMo Free indisponível: tentar outro modelo visual elegível ou BLOCKED.
 - resposta inválida, baixa confiança ou erro de transporte: preservar falha e não aplicar mudança visual automática.
@@ -150,9 +165,12 @@ OpenCode recebe somente prompt mínimo, objetivo, contexto necessário e imagem 
 - AC-VIS-010: Ollama local é priorizado quando Gemma visual instalado e capability vision confirmada.
 - AC-VIS-011: variantes Gemma textuais não são usadas para análise de imagem.
 - AC-VIS-012: relay Ollama envia imagem somente para endpoint local autorizado.
+- AC-VIS-013: Freebuff só é usado quando rota documentada confirma entrada de imagem.
+- AC-VIS-014: dados enviados ao Freebuff são declarados como serviço remoto.
 - T-VIS-010: ollama ls ou /api/tags descobre modelo local.
 - T-VIS-011: /api/show sem vision rejeita candidato.
 - T-VIS-012: Gemma visual produz evidência estruturada sem escrita no workspace.
+- T-VIS-013: Freebuff sem capacidade visual confirmada é ignorado.
 
 ## TestSprite
 

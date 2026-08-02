@@ -180,3 +180,21 @@ test("skill instalada documenta Gemma visual via Ollama @spec:AC-VIS-010", () =>
     fs.rmSync(target, { recursive: true, force: true });
   }
 });
+
+test("skill instalada documenta Freebuff com capability visual obrigatória @spec:AC-VIS-013", () => {
+  const target = fs.mkdtempSync(path.join(os.tmpdir(), "devweave-"));
+  try {
+    const installed = run(["install", "--project", "--platform", "codex", "--target", target]);
+    assert.equal(installed.status, 0, installed.stderr);
+    const vision = fs.readFileSync(
+      path.join(target, ".codex", "skills", "devweave", "references", "vision-and-testing.md"),
+      "utf8",
+    );
+    assert.match(vision, /Freebuff/);
+    assert.match(vision, /rota documentada que receba imagem/);
+    assert.match(vision, /Freebuff sem capacidade visual confirmada é ignorado/);
+    assert.match(vision, /dados enviados ao Freebuff/);
+  } finally {
+    fs.rmSync(target, { recursive: true, force: true });
+  }
+});

@@ -24,6 +24,26 @@ DevWeave consolida papéis e regras. Não incorpora código, não instala todas 
 
 - [Google Mantis](https://github.com/google/mantis) — pipeline modular de revisão defensiva, reprodução e patch em ambiente isolado.
 - [Work Mantis](https://github.com/guicribeiro/work-mantis) — adaptação de domínio, gates e contrato de evidência.
+- [TestSprite](https://www.testsprite.com/) — geração e execução de testes comportamentais contra aplicação em execução, com evidências para agentes; [documentação MCP](https://testspriteinc.mintlify.app/mcp/getting-started/overview).
+
+## MCP e integrações
+
+- [awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) — catálogo para descoberta de servidores MCP; não é certificação de segurança ou compatibilidade.
+- [Model Context Protocol](https://modelcontextprotocol.io/) — protocolo e documentação base para integrações MCP.
+- [Context7](https://github.com/upstash/context7) — documentação atual e versionada para agentes.
+- [GitHub MCP Server](https://github.com/github/github-mcp-server) — acesso controlável a repositórios, issues, PRs e outros recursos do GitHub.
+- [Playwright MCP](https://github.com/microsoft/playwright-mcp) — automação de navegador com snapshots estruturados.
+- [MCP Inspector](https://github.com/modelcontextprotocol/inspector) — inspeção e depuração de servidores MCP.
+- [Filesystem MCP](https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem) — acesso delimitado a arquivos locais.
+- [Semgrep](https://github.com/semgrep/semgrep) — análise estática e regras de segurança.
+- [Sentry MCP](https://github.com/getsentry/sentry-mcp) — erros e performance.
+- [Container Use](https://github.com/dagger/container-use) — execução isolada para agentes de código.
+- [Microsoft MarkItDown](https://github.com/microsoft/markitdown) — conversão de documentos para Markdown; [MarkItDown-MCP](https://github.com/microsoft/markitdown/tree/main/packages/markitdown-mcp) — entrada documental via MCP local.
+- [Agent-Reach](https://github.com/Panniantong/Agent-Reach) — registry de fontes web, fallback e diagnóstico para agentes.
+- [AIOX Core](https://github.com/SynkraAI/aiox-core) — referência de squads, workflows, CLI-first e sincronização entre IDEs.
+- [OfficeCLI enhanced Codex](https://github.com/anthonyhtang/OfficeCLI-enhanced-codex) — criação, edição, validação e Track Changes em documentos Office.
+- [GitHub Spec Kit](https://github.com/github/spec-kit) — especificação dirigida, extensions, presets e bundles.
+- [Integrações de ecossistema](skill/devweave/references/ecosystem-integrations.md) — decisão, contratos, guardrails e Spec Anchors DevWeave.
 
 ## Eficiência e simplicidade
 

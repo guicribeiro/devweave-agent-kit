@@ -33,6 +33,9 @@ DevWeave consolida papéis e regras. Não incorpora código, não instala todas 
 - [OpenCode Models](https://opencode.ai/docs/models/) — catálogo e capacidade declarada de modelos.
 - [OpenCode CLI](https://opencode.ai/docs/cli/) — execução não interativa e anexos de imagem.
 - [MiMo no OpenCode](https://mimo.mi.com/docs/en-US/news/previous-news/first-week-free) — disponibilidade MiMo Free no OpenCode Zen, sujeita a limites e período.
+- [Ollama Vision](https://docs.ollama.com/capabilities/vision) — análise local de imagens por CLI e API.
+- [Ollama Show Model](https://docs.ollama.com/api-reference/show-model-details) — capability vision para confirmar modelo visual.
+- [Ollama Gemma 3](https://ollama.com/library/gemma3) — Gemma 3 multimodal e variantes visuais 4B, 12B e 27B.
 - [Context7](https://github.com/upstash/context7) — documentação atual e versionada para agentes.
 - [GitHub MCP Server](https://github.com/github/github-mcp-server) — acesso controlável a repositórios, issues, PRs e outros recursos do GitHub.
 - [Playwright MCP](https://github.com/microsoft/playwright-mcp) — automação de navegador com snapshots estruturados.

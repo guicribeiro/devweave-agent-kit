@@ -162,3 +162,21 @@ test("skill instalada documenta descoberta visual local e MiMo Free @spec:AC-VIS
     fs.rmSync(target, { recursive: true, force: true });
   }
 });
+
+test("skill instalada documenta Gemma visual via Ollama @spec:AC-VIS-010", () => {
+  const target = fs.mkdtempSync(path.join(os.tmpdir(), "devweave-"));
+  try {
+    const installed = run(["install", "--project", "--platform", "codex", "--target", target]);
+    assert.equal(installed.status, 0, installed.stderr);
+    const vision = fs.readFileSync(
+      path.join(target, ".codex", "skills", "devweave", "references", "vision-and-testing.md"),
+      "utf8",
+    );
+    assert.match(vision, /Ollama/);
+    assert.match(vision, /Gemma 3 multimodal/);
+    assert.match(vision, /capabilities contendo vision/);
+    assert.match(vision, /ollama pull gemma3:4b/);
+  } finally {
+    fs.rmSync(target, { recursive: true, force: true });
+  }
+});

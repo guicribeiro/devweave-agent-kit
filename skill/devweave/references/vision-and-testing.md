@@ -70,30 +70,46 @@ Regras:
 
 O relay deve localizar provedor por capacidade, não por nome presumido. Usar esta ordem:
 
-1. IA visual local já configurada ou detectada no sistema;
-2. endpoint local autorizado compatível com entrada de imagem;
-3. catálogo do OpenCode, quando o comando estiver disponível;
-4. MiMo Free via OpenCode Zen, somente quando catálogo e probe confirmarem entrada de imagem;
-5. BLOCKED com causa e próxima ação.
+1. Ollama local com Gemma visual já instalada;
+2. outra IA visual local já configurada ou detectada no sistema;
+3. endpoint local autorizado compatível com entrada de imagem;
+4. catálogo do OpenCode, quando o comando estiver disponível;
+5. MiMo Free via OpenCode Zen, somente quando catálogo e probe confirmarem entrada de imagem;
+6. BLOCKED com causa e próxima ação.
 
 “Detectada no sistema” significa comando disponível no PATH, configuração explícita ou endpoint local já autorizado. Não varrer disco, não iniciar serviço desconhecido e não instalar ferramenta automaticamente.
+
+Ollama deve ser tratado como local somente quando serviço e modelo estiverem acessíveis. Preferir Gemma 3 multimodal instalado; confirmar capability vision antes de enviar imagem. Não fazer ollama pull automaticamente.
 
 ### Registro do provedor
 
 Registrar junto da evidência:
 
     {
-      "provider_id": "local|opencode",
+      "provider_id": "ollama|local|opencode",
       "model_id": "provider/model",
-      "source": "path|config|endpoint|opencode_catalog",
+      "source": "ollama_cli|ollama_api|path|config|endpoint|opencode_catalog",
       "local_or_remote": "local|remote",
       "input_modalities": ["text", "image"],
-      "selected_by": "capability|preferred_free_fallback",
+      "selected_by": "local_gemma|capability|preferred_free_fallback",
       "auth_state": "none|configured|required",
       "evidence_ref": "..."
     }
 
 Provedor remoto deve declarar dados enviados, autenticação, retenção conhecida e limite de privacidade. Imagem com segredo, token ou dado pessoal exige remoção, proteção ou autorização explícita antes do envio.
+
+### Seleção Ollama e Gemma
+
+Quando Ollama estiver disponível:
+
+1. listar modelos locais com ollama ls ou endpoint local GET /api/tags;
+2. consultar cada candidato com POST /api/show e aceitar somente capabilities contendo vision;
+3. priorizar Gemma 3 multimodal instalado: gemma3:4b, gemma3:12b, gemma3:27b ou tag equivalente confirmada;
+4. rejeitar gemma3:270m e gemma3:1b para imagem, pois são variantes textuais;
+5. executar relay com ollama run modelo imagem objetivo ou POST /api/chat usando messages e images;
+6. validar resposta contra contrato visual_evidence e registrar modelo, origem local e capability.
+
+Ollama aceita imagem local no CLI e array images na API. Para análise repetida, usar API local e saída estruturada quando suportada. Não enviar imagem para nuvem Ollama sem autorização explícita.
 
 ### Seleção OpenCode
 
@@ -113,6 +129,7 @@ OpenCode recebe somente prompt mínimo, objetivo, contexto necessário e imagem 
 ### Falhas e fallback
 
 - OpenCode ausente: continuar com IA local visual configurada; caso contrário, BLOCKED.
+- Ollama disponível sem Gemma visual instalado: tentar outro modelo visual local ou OpenCode; informar ollama pull gemma3:4b como ação manual, sem executar download.
 - catálogo sem modelo visual: BLOCKED, informando instalação/configuração necessária; não instalar sem autorização.
 - MiMo Free indisponível: tentar outro modelo visual elegível ou BLOCKED.
 - resposta inválida, baixa confiança ou erro de transporte: preservar falha e não aplicar mudança visual automática.
@@ -130,6 +147,12 @@ OpenCode recebe somente prompt mínimo, objetivo, contexto necessário e imagem 
 - T-VIS-007: catálogo sem capacidade visual produz BLOCKED.
 - T-VIS-008: execução OpenCode devolve JSON compatível com visual_evidence.
 - T-VIS-009: imagem, prompt ou resposta inválidos não geram escrita nem ação externa.
+- AC-VIS-010: Ollama local é priorizado quando Gemma visual instalado e capability vision confirmada.
+- AC-VIS-011: variantes Gemma textuais não são usadas para análise de imagem.
+- AC-VIS-012: relay Ollama envia imagem somente para endpoint local autorizado.
+- T-VIS-010: ollama ls ou /api/tags descobre modelo local.
+- T-VIS-011: /api/show sem vision rejeita candidato.
+- T-VIS-012: Gemma visual produz evidência estruturada sem escrita no workspace.
 
 ## TestSprite
 

@@ -75,9 +75,9 @@ Detalhes de contrato, segurança, pré-requisitos e Spec Anchors: [vision-and-te
 
 ### Provedor visual
 
-O relay procura primeiro uma IA visual local já configurada ou disponível no sistema. Se não encontrar, pode usar OpenCode como fallback e selecionar MiMo Free somente quando o catálogo confirmar capacidade de entrada de imagem. Não há instalação automática, varredura de disco ou modelo presumido; ausência de capacidade retorna BLOCKED.
+O relay procura primeiro Gemma visual via Ollama e outras IAs locais já configuradas ou disponíveis no sistema. Gemma só entra quando Ollama confirma modelo instalado com capability de visão. Se não encontrar provedor local, pode usar OpenCode como fallback e selecionar MiMo Free somente quando o catálogo confirmar capacidade de entrada de imagem. Não há instalação automática, varredura de disco ou modelo presumido; ausência de capacidade retorna BLOCKED.
 
-OpenCode é serviço remoto neste fluxo. O comando usa contexto isolado, imagem validada e saída JSON. Consulte o [catálogo de modelos do OpenCode](https://opencode.ai/docs/models/) e a [CLI oficial](https://opencode.ai/docs/cli/). A disponibilidade gratuita do MiMo pode mudar conforme limite, autenticação e catálogo.
+Ollama mantém imagem no endpoint local autorizado. OpenCode é serviço remoto neste fluxo. Os dois usam contexto isolado, imagem validada e saída estruturada. Consulte [Visão no Ollama](https://docs.ollama.com/capabilities/vision), [detalhes de modelo](https://docs.ollama.com/api-reference/show-model-details), [catálogo Gemma 3](https://ollama.com/library/gemma3), [catálogo de modelos do OpenCode](https://opencode.ai/docs/models/) e [CLI oficial do OpenCode](https://opencode.ai/docs/cli/). A disponibilidade gratuita do MiMo pode mudar conforme limite, autenticação e catálogo.
 
 ## MCP e seleção de ferramentas
 

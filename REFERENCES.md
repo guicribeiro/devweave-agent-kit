@@ -38,6 +38,12 @@ DevWeave consolida papéis e regras. Não incorpora código, não instala todas 
 - [Semgrep](https://github.com/semgrep/semgrep) — análise estática e regras de segurança.
 - [Sentry MCP](https://github.com/getsentry/sentry-mcp) — erros e performance.
 - [Container Use](https://github.com/dagger/container-use) — execução isolada para agentes de código.
+- [Microsoft MarkItDown](https://github.com/microsoft/markitdown) — conversão de documentos para Markdown; [MarkItDown-MCP](https://github.com/microsoft/markitdown/tree/main/packages/markitdown-mcp) — entrada documental via MCP local.
+- [Agent-Reach](https://github.com/Panniantong/Agent-Reach) — registry de fontes web, fallback e diagnóstico para agentes.
+- [AIOX Core](https://github.com/SynkraAI/aiox-core) — referência de squads, workflows, CLI-first e sincronização entre IDEs.
+- [OfficeCLI enhanced Codex](https://github.com/anthonyhtang/OfficeCLI-enhanced-codex) — criação, edição, validação e Track Changes em documentos Office.
+- [GitHub Spec Kit](https://github.com/github/spec-kit) — especificação dirigida, extensions, presets e bundles.
+- [Integrações de ecossistema](skill/devweave/references/ecosystem-integrations.md) — decisão, contratos, guardrails e Spec Anchors DevWeave.
 
 ## Eficiência e simplicidade
 

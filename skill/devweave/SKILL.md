@@ -49,6 +49,7 @@ Aplicar automaticamente em toda tarefa de desenvolvimento. Preservar instruçõe
 - Subagentes: usar somente quando regras vigentes autorizarem e tarefas forem independentes.
 - Relay visual: usar contexto novo, escopo mínimo e saída estruturada; subagent visual não edita arquivos nem executa comandos.
 - TestSprite: tratar como fonte externa de evidência, nunca como fonte única da verdade; requisitos e AC continuam sendo oráculo.
+- Ecossistema: para documentos, pesquisa web, Office ou workflow spec-driven, ler references/ecosystem-integrations.md. Usar adapters com origem, escopo, probe e fallback.
 - Deploy, merge, exclusão de dados e ações irreversíveis: exigir autorização explícita.
 
 ## Carregar referências
@@ -56,6 +57,7 @@ Aplicar automaticamente em toda tarefa de desenvolvimento. Preservar instruçõe
 - Ler [references/specification.md](references/specification.md) para escolher artefatos OpenSpec.
 - Ler [references/spec-anchor.md](references/spec-anchor.md) para rastreabilidade e gate mecânico em tarefas normais/complexas.
 - Ler [references/vision-and-testing.md](references/vision-and-testing.md) para relay visual e verificação TestSprite.
+- Ler [references/ecosystem-integrations.md](references/ecosystem-integrations.md) para documentos, pesquisa web, Office e especificação externa.
 - Ler [references/verification.md](references/verification.md) antes de concluir trabalho substantivo.
 - Ler [references/compatibility.md](references/compatibility.md) ao adaptar fluxo para outra CLI/IDE.
 - Ler [references/mantis.md](references/mantis.md) para segurança, arquitetura, reprodução defensiva e testes adversariais.

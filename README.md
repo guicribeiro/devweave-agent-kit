@@ -81,6 +81,12 @@ Base recomendada: [Context7](https://github.com/upstash/context7) para documenta
 
 Playwright deve resolver estrutura e interação primeiro; `vision_bridge` entra quando screenshot, layout, pixels ou imagem exigirem percepção visual. TestSprite continua verificador externo opcional. Regras, gate, registro e Spec Anchors: [mcp-selection.md](skill/devweave/references/mcp-selection.md).
 
+## Documentos, pesquisa e especificação
+
+DevWeave agora mapeia [MarkItDown](https://github.com/microsoft/markitdown) para entrada de PDF/Office em Markdown, [Agent-Reach](https://github.com/Panniantong/Agent-Reach) para registry de fontes web com fallback, [OfficeCLI enhanced Codex](https://github.com/anthonyhtang/OfficeCLI-enhanced-codex) para artefatos Office e [GitHub Spec Kit](https://github.com/github/spec-kit) para templates spec-driven. [AIOX Core](https://github.com/SynkraAI/aiox-core) entra como referência de squads, CLI-first, sync e doctor.
+
+MarkItDown e Spec Kit podem ser adotados com gates. Agent-Reach e OfficeCLI ficam em pilot; AIOX não deve ser instalado como segundo orquestrador. Detalhes de contratos, fluxos e Spec Anchors: [ecosystem-integrations.md](skill/devweave/references/ecosystem-integrations.md).
+
 ## Novidades da versão 0.5
 
 Versão 0.5 incorpora melhores princípios de [oh-my-opencode-slim](https://github.com/alvinunreal/oh-my-opencode-slim), sem acoplar DevWeave a modelos ou runtime específico:
@@ -93,6 +99,7 @@ Versão 0.5 incorpora melhores princípios de [oh-my-opencode-slim](https://gith
 - simplificação posterior aos testes, preservando comportamento;
 - relay visual para agentes sem capacidade de visão;
 - verificação E2E/visual externa com TestSprite quando configurada;
+- integrações documentais, web, Office e spec-driven com adapters e fallback;
 - aprendizado baseado em atrito repetido, aceitando “não criar nada” como resultado correto.
 
 ## Instalação rápida

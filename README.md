@@ -73,6 +73,37 @@ Para frontend, fluxos E2E, API integrada e regressão visual, DevWeave aceita [T
 
 Detalhes de contrato, segurança, pré-requisitos e Spec Anchors: [vision-and-testing.md](skill/devweave/references/vision-and-testing.md).
 
+## Verificação local gratuita
+
+DevWeave agora documenta uma camada local-first para validar comportamento sem API
+key, dashboard ou serviço cloud obrigatório. O contrato portátil está em
+[local-verification.md](skill/devweave/references/local-verification.md).
+
+### DevWeave Verify
+
+Para frontend, E2E e API integrada, usar o loop:
+
+```text
+intenção → plano → execução local → evidência sanitizada → correção → rerun
+```
+
+O adapter pode expor `devweave_verify_begin`, `navigate`, `snapshot`, `click`,
+`fill`, `assert` e `finish`. URL externa fica bloqueada por padrão; segredos,
+cookies, headers e valores preenchidos não entram nos artefatos. TestSprite continua
+opcional como verificador externo, nunca como única fonte da verdade.
+
+### DevWeave Harness
+
+Para avaliar o loop do agente, o Harness organiza evidência project-only em cinco
+dimensões: Task Understanding, Controlled Execution, Change Validation, Reliable
+Delivery e Learning Capture. Estados `Missing`, `Present`, `Wired`, `Exercised` e
+`Unobserved` permanecem visíveis. Não há score inventado, leitura de sessão ou
+afirmação de melhoria longitudinal sem episódios comparáveis.
+
+Adapters podem expor `devweave_harness_analyze` e `devweave_harness_read` com
+artefatos JSON/Markdown, `runId` limitado ao workspace e checks allowlisted opt-in.
+Sem adapter, usar matriz manual equivalente e classificar ausência como `CAVEATS`.
+
 ## MCP e seleção de ferramentas
 
 DevWeave usa servidores MCP por capacidade e lane, não como pacote indiscriminado. O catálogo [awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) serve para descoberta; cada servidor precisa de origem verificada, permissões mínimas, probe isolado, fallback e registro de evidência.
@@ -87,9 +118,9 @@ DevWeave agora mapeia [MarkItDown](https://github.com/microsoft/markitdown) para
 
 MarkItDown e Spec Kit podem ser adotados com gates. Agent-Reach e OfficeCLI ficam em pilot; AIOX não deve ser instalado como segundo orquestrador. Detalhes de contratos, fluxos e Spec Anchors: [ecosystem-integrations.md](skill/devweave/references/ecosystem-integrations.md).
 
-## Novidades da versão 0.5
+## Novidades da versão 0.6
 
-Versão 0.5 incorpora melhores princípios de [oh-my-opencode-slim](https://github.com/alvinunreal/oh-my-opencode-slim), sem acoplar DevWeave a modelos ou runtime específico:
+Versão 0.6 incorpora melhores princípios de [oh-my-opencode-slim](https://github.com/alvinunreal/oh-my-opencode-slim) e verificação local-first, sem acoplar DevWeave a modelos ou runtime específico:
 
 - plano de evidência antes de trabalho não trivial;
 - lanes para exploração, pesquisa, arquitetura, design, implementação, observação e conselho;
@@ -98,6 +129,9 @@ Versão 0.5 incorpora melhores princípios de [oh-my-opencode-slim](https://gith
 - paralelismo somente entre escopos independentes;
 - simplificação posterior aos testes, preservando comportamento;
 - relay visual para agentes sem capacidade de visão;
+- protocolo local gratuito DevWeave Verify para E2E, API e navegador;
+- protocolo project-only DevWeave Harness inspirado no Agent Work Loop;
+- estados de evidência, achados bounded e checks allowlisted sem score inventado;
 - verificação E2E/visual externa com TestSprite quando configurada;
 - integrações documentais, web, Office e spec-driven com adapters e fallback;
 - aprendizado baseado em atrito repetido, aceitando “não criar nada” como resultado correto.

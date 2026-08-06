@@ -1,6 +1,6 @@
 ---
 name: devweave
-description: Fluxo always-on para todo trabalho de desenvolvimento de software. Aplicar automaticamente em toda feature, bug, refatoração, arquitetura, API, banco, segurança, interface, diagnóstico, revisão ou mudança de código, mesmo quando usuário não mencionar DevWeave. Classificar risco, definir pronto, especificar proporcionalmente, escolher solução mínima, usar TDD, delegar análise visual com segurança quando agente não tiver visão, usar verificação E2E/visual externa quando disponível, revisar e verificar de forma independente, com fallbacks para Graphify, OpenSpec, UI UX Pro Max, Superpowers, Ponytail, RTK, Fable Judge, Self-Learning, Headroom e formato i-have-adhd.
+description: Fluxo always-on para todo trabalho de desenvolvimento de software. Aplicar automaticamente em toda feature, bug, refatoração, arquitetura, API, banco, segurança, interface, diagnóstico, revisão ou mudança de código, mesmo quando usuário não mencionar DevWeave. Classificar risco, definir pronto, especificar proporcionalmente, escolher solução mínima, usar TDD, verificar fluxos localmente antes de depender de serviço externo, delegar análise visual com segurança quando agente não tiver visão, revisar e verificar de forma independente, com fallbacks para Graphify, OpenSpec, UI UX Pro Max, Superpowers, Ponytail, RTK, Fable Judge, Self-Learning, Headroom e formato i-have-adhd.
 ---
 
 # DevWeave
@@ -35,7 +35,7 @@ Aplicar automaticamente em toda tarefa de desenvolvimento. Preservar instruçõe
 10. Para comportamento, aplicar TDD: falha observada, implementação mínima, sucesso observado, refatoração. Ligar teste ao critério quando Spec Anchor estiver ativo.
 11. Usar RTK quando disponível. Recuperar saída completa quando compactação esconder causa.
 12. Executar gate mecânico quando ONP CLI estiver disponível; usar matriz manual equivalente como fallback.
-13. Para frontend, fluxo E2E, API integrada ou regressão visual, usar TestSprite como verificador externo opcional quando configurado. Ler [references/vision-and-testing.md](references/vision-and-testing.md), mapear resultado para AC/T e nunca executar contra produção.
+13. Para frontend, fluxo E2E, API integrada ou regressão visual, começar por verificação local quando houver adapter seguro. Ler [references/local-verification.md](references/local-verification.md): DevWeave Verify cobre plano → execução → evidência → rerun; DevWeave Harness cobre contexto, execução, validação, entrega e aprendizado project-only. Usar TestSprite como verificador externo opcional quando configurado, mapear resultado para AC/T e nunca executar contra produção.
 14. Para segurança, arquitetura ou teste adversarial, ler [references/mantis.md](references/mantis.md) e aplicar trilha Mantis proporcional ao risco.
 15. Antes da verificação final, simplificar somente código alterado quando comportamento, erros, efeitos colaterais e desempenho relevante permanecerem comprovadamente iguais.
 16. Verificar com Fable Judge: inspecionar diff, reexecutar checks, validar critérios, detectar teste enfraquecido e mudança fora de escopo.
@@ -49,6 +49,7 @@ Aplicar automaticamente em toda tarefa de desenvolvimento. Preservar instruçõe
 - Subagentes: usar somente quando regras vigentes autorizarem e tarefas forem independentes.
 - Relay visual: usar contexto novo, escopo mínimo e saída estruturada; subagent visual não edita arquivos nem executa comandos.
 - TestSprite: tratar como fonte externa de evidência, nunca como fonte única da verdade; requisitos e AC continuam sendo oráculo.
+- Verificação local: não exigir API key ou dashboard; marcar sessões, rede, entrega externa e melhoria longitudinal como `Unobserved` quando não houver evidência autorizada.
 - Ecossistema: para documentos, pesquisa web, Office ou workflow spec-driven, ler references/ecosystem-integrations.md. Usar adapters com origem, escopo, probe e fallback.
 - Deploy, merge, exclusão de dados e ações irreversíveis: exigir autorização explícita.
 
@@ -57,6 +58,7 @@ Aplicar automaticamente em toda tarefa de desenvolvimento. Preservar instruçõe
 - Ler [references/specification.md](references/specification.md) para escolher artefatos OpenSpec.
 - Ler [references/spec-anchor.md](references/spec-anchor.md) para rastreabilidade e gate mecânico em tarefas normais/complexas.
 - Ler [references/vision-and-testing.md](references/vision-and-testing.md) para relay visual e verificação TestSprite.
+- Ler [references/local-verification.md](references/local-verification.md) para DevWeave Verify, DevWeave Harness, MCP estreito e fallback sem serviço externo.
 - Ler [references/ecosystem-integrations.md](references/ecosystem-integrations.md) para documentos, pesquisa web, Office e especificação externa.
 - Ler [references/verification.md](references/verification.md) antes de concluir trabalho substantivo.
 - Ler [references/compatibility.md](references/compatibility.md) ao adaptar fluxo para outra CLI/IDE.

@@ -1,6 +1,6 @@
 {
   "name": "devweave-agent-kit",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Skill global e adaptadores para fluxo de desenvolvimento de software com agentes de IA",
   "author": "Guilherme Ribeiro",
   "repository": {

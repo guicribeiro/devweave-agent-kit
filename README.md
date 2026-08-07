@@ -12,6 +12,8 @@ Funciona com Codex, Claude Code, Cursor, OpenCode, Gemini CLI, GitHub Copilot, W
 
 Criado e mantido por [Guilherme Ribeiro](https://github.com/guicribeiro). Licença MIT.
 
+Versão atual: [DevWeave 0.6.0](https://github.com/guicribeiro/devweave-agent-kit/releases/tag/v0.6.0).
+
 ## Prompts prontos
 
 [PROMPTS.md](PROMPTS.md) reúne prompts copiáveis para avaliação, revisão, modificação,
@@ -118,7 +120,7 @@ DevWeave agora mapeia [MarkItDown](https://github.com/microsoft/markitdown) para
 
 MarkItDown e Spec Kit podem ser adotados com gates. Agent-Reach e OfficeCLI ficam em pilot; AIOX não deve ser instalado como segundo orquestrador. Detalhes de contratos, fluxos e Spec Anchors: [ecosystem-integrations.md](skill/devweave/references/ecosystem-integrations.md).
 
-## Novidades da versão 0.6
+## Novidades da versão 0.6.0
 
 Versão 0.6 incorpora melhores princípios de [oh-my-opencode-slim](https://github.com/alvinunreal/oh-my-opencode-slim) e verificação local-first, sem acoplar DevWeave a modelos ou runtime específico:
 
@@ -167,6 +169,16 @@ git clone https://github.com/guicribeiro/devweave-agent-kit.git
 cd devweave-agent-kit
 npm install -g .
 devweave install
+```
+
+### Atualizar instalação existente
+
+Para atualizar instalação global para versão atual e sincronizar destinos suportados:
+
+```sh
+npm install -g github:guicribeiro/devweave-agent-kit
+devweave update --global --platform all
+devweave doctor --global
 ```
 
 ## Uso
